@@ -2,12 +2,12 @@ import React from 'react';
 import axios from 'axios';
 
 const StudentDisplay = ({ project }) => {
-
+    const backendURL = import.meta.env.VITE_BACKEND_URL;
     const handleJoin = async () => {
         try {
           const token = localStorage.getItem('token');
           const res = await axios.post(
-            'http://localhost:3000/api/student',
+            `${backendURL}/api/student`,
             { projectId: project._id },
             {
               headers: {

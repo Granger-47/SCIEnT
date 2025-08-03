@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import CreateProject from '../components/CreateProject';
 
 const Proffdashboard = () => {
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
   const [user, setUser] = useState(null);
   const type = localStorage.getItem('type');
 
@@ -28,7 +29,7 @@ const Proffdashboard = () => {
   const fetchUser = async () => {
     try {
       const token = localStorage.getItem('token');
-      const res = await axios.get('http://localhost:3000/api/proff', {
+      const res = await axios.get(`${backendURL}/api/proff`, {
         headers: {
           Authorization: `Bearer ${token}`
         }

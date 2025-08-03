@@ -4,7 +4,7 @@ import axios from 'axios';
 const CreateProject = ({done}) => {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
-    
+    const backendURL = import.meta.env.VITE_BACKEND_URL;
  
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -12,7 +12,7 @@ const CreateProject = ({done}) => {
         try {
             const token = localStorage.getItem('token');
             const res = await axios.post(
-              'http://localhost:3000/api/proff',
+              `${backendURL}/api/proff`,
               { name, description },
               {
                 headers: {

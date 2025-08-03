@@ -3,13 +3,14 @@ import axios from 'axios';
 import Header from '../components/Header';
 
 const Profile = () => {
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:3000/api/auth/verify', {
+        const res = await axios.get(`${backendURL}/api/auth/verify`, {
           headers: {
             Authorization: `Bearer ${token}`
           }

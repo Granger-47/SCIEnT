@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Signup = () => {
+    const backendURL = import.meta.env.VITE_BACKEND_URL;
     const navigate = useNavigate();
     const [name,setName] = useState('');
     const [email,setEmail] = useState('');
@@ -12,7 +13,7 @@ const Signup = () => {
     const handleSubmit = async (e)=>{
         e.preventDefault();
         try {
-            const res = await axios.post('http://localhost:3000/api/auth/signup', {
+            const res = await axios.post(`${backendURL}/api/auth/signup`, {
                 name, email, password: pass, type });
             console.log('Login success:', res.data);
             localStorage.setItem('token', res.data.token); 

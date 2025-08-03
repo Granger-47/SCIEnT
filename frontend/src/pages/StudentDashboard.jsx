@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 
 const StudentDashboard = () => {
+  const backendURL = import.meta.env.VITE_BACKEND_URL;
   const [projects, setProjects] = useState([]);
   const type = localStorage.getItem('type');
 
@@ -32,7 +33,7 @@ const StudentDashboard = () => {
     const fetchProjects = async () => {
       try {
         const token = localStorage.getItem('token');
-        const res = await axios.get('http://localhost:3000/api/project', {
+        const res = await axios.get(`${backendURL}/api/project`, {
           headers: {
             Authorization: `Bearer ${token}`
           }
