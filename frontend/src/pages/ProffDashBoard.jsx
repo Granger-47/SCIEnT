@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import ProffDisplay from '../components/ProffDisplay';
+import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import CreateProject from '../components/CreateProject';
 
@@ -12,7 +13,7 @@ const Proffdashboard = () => {
     return  (
         <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-blue-100 to-purple-200 px-4">
           <h1 className="text-3xl font-bold text-red-700 mb-4">Access Denied</h1>
-          <p className="text-lg text-gray-700 mb-6">You're not a student. Please login with a student account.</p>
+          <p className="text-lg text-gray-700 mb-6">You're not a professor. Please login with a professor account.</p>
           <Link
             to="/"
             className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition"
